@@ -14,12 +14,12 @@
 namespace bot_avim {
 
 	avproto_wrapper::avproto_wrapper(boost::asio::io_service& io_service, std::shared_ptr<RSA> key, std::shared_ptr<X509> crt)
-	: m_io_service(io_service)
-	, m_key(key)
-	, m_crt(crt)
-	, m_avkernel(io_service)
+		: m_io_service(io_service)
+		, m_key(key)
+		, m_crt(crt)
+		, m_avkernel(io_service)
 	{
-		LOG_DBG << "avproto constructor";
+			LOG_DBG << "avproto constructor";
 	}
 
 	avproto_wrapper::~avproto_wrapper()
@@ -42,8 +42,6 @@ namespace bot_avim {
 
 	void avproto_wrapper::connect_coroutine(boost::asio::yield_context yield_context)
 	{
-		boost::system::error_code ec;
-		using namespace boost::asio::ip;
 		m_avif.reset(new avjackif(m_io_service));
 		boost::asio::spawn(m_io_service, std::bind(&avproto_wrapper::login_coroutine, this, std::placeholders::_1));
 	}
@@ -86,9 +84,8 @@ namespace bot_avim {
 	{
 		for(;;)
 		{
-			std::string target, data;
+			std::string  target, data, from;
 			m_avkernel.async_recvfrom(target, data, yield_context);
-			std::string from;
 			if(is_control_message(data))
 				m_service.get()->handle_message(0,target, decode_control_message(data, from));
 			else

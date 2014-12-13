@@ -108,12 +108,12 @@ int main(int argc, char* argv[])
 	
 	if(vm.count("service") == 0)
 	{
-		std::cout << "Strat client." << std::endl;
+		std::cout << "Start client." << std::endl;
 		service.reset(new bot_avim::bot_client(io_service, rsa_key, x509_cert));
 	}
 	else
 	{
-		std::cout << "Strat server." << std::endl;
+		std::cout << "Start server." << std::endl;
 		service.reset(new bot_avim::bot_group(io_service, rsa_key, x509_cert));
 	}
 

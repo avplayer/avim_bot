@@ -23,14 +23,14 @@ namespace bot_avim {
 			: m_io_service(io_service)
 			, m_key(key)
 			, m_crt(crt)
-		{};
+		{}
 
-		~bot_service(){};
+		~bot_service(){}
 
 	public:
-		virtual bool handle_message(const std::string& sender, const std::string& content){return true;};
-		virtual bool handle_message(int type, std::string &sender, std::shared_ptr<google::protobuf::Message> msg_ptr){return true;};
-		virtual bool notify(int cmd, int ext1 = 0, int ext2 = 0){return true;};
+		virtual bool handle_message(const std::string& sender, const std::string& content){return true;}
+		virtual bool handle_message(int type, std::string &sender, std::shared_ptr<google::protobuf::Message> msg_ptr){return true;}
+		virtual bool notify(int cmd, int ext1 = 0, int ext2 = 0){return true;}
 
 	private:
 		boost::asio::io_service& m_io_service;
