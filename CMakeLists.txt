@@ -18,13 +18,10 @@ find_package(Protobuf REQUIRED)
 find_package(OpenSSL REQUIRED)
 
 include_directories(
-	${PROTOBUF_INCLUDE_DIRS}
 	${CMAKE_CURRENT_BINARY_DIR}
 	${Boost_INCLUDE_DIRS}
 	${OPENSSL_INCLUDE_DIR}
-	${CMAKE_CURRENT_BINARY_DIR}/avim_proto/
 	include/
-	libavproto/include/
 )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y")
