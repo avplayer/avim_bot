@@ -32,6 +32,5 @@ link_libraries(${Boost_LIBRARIES})
 link_libraries(${OPENSSL_LIBRARIES})
 
 add_subdirectory(libavim)
-add_subdirectory(avim_proto)
 
 add_subdirectory(src)
